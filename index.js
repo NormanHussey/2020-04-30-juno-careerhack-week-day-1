@@ -31,7 +31,9 @@ app.post('/api/data', (req, res) => {
   // TODO:
   // 1. Validate the existence of 'title'
   // 2. Validate the existence of 'description'
-  res.json(dataService.create(req.body));
+  if (req.body.title && req.body.title !== '' && req.body.description && req.body.description !== '') {
+    res.json(dataService.create(req.body));
+  }
 });
 
 

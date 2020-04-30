@@ -2,7 +2,10 @@
 function fetchAndPrintData() {
   fetch('/api/data')
     .then(data => data.json())
-    .then(json => document.getElementById('out').textContent = JSON.stringify(json) );
+    .then(json => {
+      document.getElementById('out').textContent = JSON.stringify(json) 
+    })
+    .catch(err => console.log(err));
 }
 
 // Submits the form and refreshes the data
